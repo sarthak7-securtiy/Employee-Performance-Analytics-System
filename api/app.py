@@ -282,8 +282,8 @@ def upload_test_papers():
                                 if 'total_points' in candidate and 'max_possible_points' in candidate:
                                     # POSH training data with points
                                     total_score = candidate['total_points']
-                                    max_possible_score = candidate['max_possible_points'] * 100  # Scale to 100-point system
-                                    percentage = (total_score / candidate['max_possible_points']) * 100 if candidate['max_possible_points'] > 0 else 0
+                                    max_possible_score = candidate['max_possible_points']
+                                    percentage = (total_score / max_possible_score) * 100 if max_possible_score > 0 else 0
                                 else:
                                     # Standard test data
                                     total_score = sum(candidate['marks'].values())
