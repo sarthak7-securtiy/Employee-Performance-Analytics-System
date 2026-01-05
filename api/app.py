@@ -287,8 +287,8 @@ def upload_test_papers():
                                 else:
                                     # Standard test data
                                     total_score = sum(candidate['marks'].values())
-                                    # For standard tests, assume each question is out of 10 (as per requirement)
-                                    max_possible_score = len(candidate['marks']) * 10
+                                    # For standard tests, assume total test is out of 20 marks (as per requirement)
+                                    max_possible_score = 20
                                     percentage = (total_score / max_possible_score) * 100 if max_possible_score > 0 else 0
                                 
                                 # Determine pass/fail status (40% for all tests)
@@ -543,8 +543,8 @@ def get_batch_analytics(test_id):
                             else:
                                 # Standard test data
                                 total_score = sum(candidate['marks'].values())
-                                # For standard tests, assume each question is out of 10 (as per requirement)
-                                max_possible_score = len(candidate.get('marks', {})) * 10 if candidate.get('marks') else 10
+                                # For standard tests, assume total test is out of 20 marks (as per requirement)
+                                max_possible_score = 20
                                 percentage = (total_score / max_possible_score) * 100 if max_possible_score > 0 else 0
                             scores.append(percentage)
                         
@@ -786,8 +786,8 @@ def get_overall_analytics():
                             all_scores.extend(scores)
                             # Calculate percentages for these scores (uniformly for all test files)
                             for i, score in enumerate(scores):
-                                # For all tests, assuming max score per question is 10 (as per requirement)
-                                max_possible = len(candidates[i]['marks']) * 10 if candidates and 'marks' in candidates[i] else 10
+                                # For all tests, assuming total test is out of 20 marks (as per requirement)
+                                max_possible = 20
                                 percentage = (score / max_possible) * 100 if max_possible > 0 else 0
                                 all_percentages.append(percentage)
                                 
@@ -1662,7 +1662,7 @@ def compare_pre_post_tests():
                     pre_candidate_ids.add(candidate_id)
                     # Calculate percentage uniformly for all test files
                     total_score = sum(candidate['marks'].values())
-                    pre_scores[candidate_id] = (total_score / (len(candidate['marks']) * 100)) * 100 if candidate['marks'] and len(candidate['marks']) > 0 else 0
+                    pre_scores[candidate_id] = (total_score / 20) * 100 if candidate['marks'] and len(candidate['marks']) > 0 and 20 > 0 else 0
                 
                 for candidate in post_candidates:
                     # Use ticket_no or name for candidate identification
@@ -1670,7 +1670,7 @@ def compare_pre_post_tests():
                     post_candidate_ids.add(candidate_id)
                     # Calculate percentage uniformly for all test files
                     total_score = sum(candidate['marks'].values())
-                    post_scores[candidate_id] = (total_score / (len(candidate['marks']) * 100)) * 100 if candidate['marks'] and len(candidate['marks']) > 0 else 0
+                    post_scores[candidate_id] = (total_score / 20) * 100 if candidate['marks'] and len(candidate['marks']) > 0 and 20 > 0 else 0
                 
                 # Find common candidates (attended both tests)
                 common_candidates = pre_candidate_ids.intersection(post_candidate_ids)

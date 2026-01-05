@@ -267,8 +267,8 @@ class OCRExtractor:
                     
                     # Calculate percentage for standard test
                     total_score = sum(candidate['marks'].values())
-                    # For standard tests, assume each question is out of 10 (as per requirement)
-                    max_possible_score = len(mark_cols) * 10
+                    # For standard tests, assume total test is out of 20 marks (as per requirement)
+                    max_possible_score = 20
                     percentage = (total_score / max_possible_score) * 100 if max_possible_score > 0 else 0
                     candidate['percentage'] = percentage
                     
