@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Initialize the database for the Tata Motors Performance Analytics system.
+Initialize the database for the Automated Training Evaluation & Performance Analytics System.
 """
 
 import os

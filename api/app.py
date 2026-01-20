@@ -70,7 +70,7 @@ def home():
 @app.route('/api')
 def api_info():
     return jsonify({
-        "message": "Tata Motors Employee Performance Analytics API",
+        "message": "Automated Training Evaluation & Performance Analytics System API",
         "version": "1.0",
         "endpoints": {
             "POST /api/upload": "Upload test papers (PDF/JPG/PNG)",
